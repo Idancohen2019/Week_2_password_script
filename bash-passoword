@@ -1,0 +1,56 @@
+#!/bin/bash
+#date 07/09/2021
+#author "Idan Cohen"
+#purpose "sela devops course"
+
+WARNING='\033[0;31m'
+SUCCESS='\033[32m'
+CLEAR='\033[0m'
+#PASSWORD INPUT
+# clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
+
+
+
+
+password="ptr*1$#+2d"
+
+if [ ${#password} -ge 9 ]
+    then
+        echo "the password is in the right length"
+else
+    echo $WARNING"\n- '$password' you need to enter 10 cherchters at your password."
+# && "$password" || *[A-Z]* || "$password" || *[a-z]* || "$password" || *[0-9]* && "$password" || *[*$#+]* ]]
+
+fi
+
+
+
+#CHECKING PASSWORD LOGIC with user input
+# if [[ $PASS_USER =~ [a-z] ]]; 
+# then
+#     echo "your password missing a upaer-case letter, please try again."; echo $?
+# else 
+#     echo "Damm"
+# fi
+
+
+
+#CHECKING PASSWORD LOGIC with without user input #####
+
+# declare password='idanokoS'
+# echo $password
+# check=0
+
+
+#CHECKING PASSWORD LOGIC
+# if [[ $password =~ [a-z] ]]; 
+# then
+#     echo "your password missing a upaer-case letter, please try again."; echo $?
+# else 
+#     echo "Damm"
+# fi
+
+# if [ "$PASS_USER" == "without "]
+
+
+#END
