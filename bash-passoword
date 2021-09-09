@@ -12,29 +12,27 @@ CLEAR='\033[0m'
 
 
 
-PASS_USER="ptrq1ewt2s"
+PASS_USER="ptrqewts23dd"
 #CHECKING PASSWORD LENGTH
 if [ ${#PASS_USER} -lt 10 ]; then
         echo echo $WARNING"\n- '$PASS_USER' you need to enter 10 cherchters at your password."
+            exit 1
 else
     echo "the password is in the right length"
-# exit 1
 fi
 
+#CHECKING PASSWORD INPUT
+echo $PASS_USER
+echo $PASS_USER | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]"
+if [[ $? -ne 0 ]];then
+echo "Password need to contain at least 1 upper-case, lower-case, and digits"
+    exit 1
+fi
+
+echo "The password passed the test."
+exit 0;
 
 
-# && "$password" || *[A-Z]* || "$password" || *[a-z]* || "$password" || *[0-9]* ]]
-
-
-
-
-#CHECKING PASSWORD LOGIC with user input
-# if [[ $PASS_USER =~ [a-z] ]]; 
-# then
-#     echo "your password missing a upaer-case letter, please try again."; echo $?
-# else 
-#     echo "Damm"
-# fi
 
 
 
@@ -44,16 +42,3 @@ fi
 # echo $password
 # check=0
 
-
-#CHECKING PASSWORD LOGIC
-# if [[ $password =~ [a-z] ]]; 
-# then
-#     echo "your password missing a upaer-case letter, please try again."; echo $?
-# else 
-#     echo "Damm"
-# fi
-
-# if [ "$PASS_USER" == "without "]
-
-
-#END
