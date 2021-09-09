@@ -12,16 +12,19 @@ CLEAR='\033[0m'
 
 
 
-password="ptr*1$#+2d"
-
-if [ ${#password} -ge 9 ]
-    then
-        echo "the password is in the right length"
+PASS_USER="ptrq1ewt2s"
+#CHECKING PASSWORD LENGTH
+if [ ${#PASS_USER} -lt 10 ]; then
+        echo echo $WARNING"\n- '$PASS_USER' you need to enter 10 cherchters at your password."
 else
-    echo $WARNING"\n- '$password' you need to enter 10 cherchters at your password."
-# && "$password" || *[A-Z]* || "$password" || *[a-z]* || "$password" || *[0-9]* && "$password" || *[*$#+]* ]]
-
+    echo "the password is in the right length"
+# exit 1
 fi
+
+
+
+# && "$password" || *[A-Z]* || "$password" || *[a-z]* || "$password" || *[0-9]* ]]
+
 
 
 
