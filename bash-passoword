@@ -14,11 +14,6 @@ excode=0 #exit number
 #ANTHER OPTION FOR USER INPUT
 # clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
 
-# -z checking if the file is empty####VAR=''
-# if [[ -z $VAR ]]; then
-#   echo "String is empty."
-# fi
-
 #CHECKING PASSWORD LENGTH
 if [ ${#PASS_USER} -lt 10 ]; then
         echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password.\a"$CLEAR
