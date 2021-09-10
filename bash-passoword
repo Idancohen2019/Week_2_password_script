@@ -5,32 +5,41 @@
 
 #GETTING PASSWORD INPUT FROM THE USER
 PASS_USER=$1
-WARNING='\e[31m';
-SUCCESS='\e[32m';
-CLEAR='\e[0m';
+declare WARNING='\033[1;94m\e[31m';
+declare SUCCESS='\033[1;94m\e[32m';
+declare CLEAR='\e[0m';
+excode=0 #exit number
+
 
 #ANTHER OPTION FOR USER INPUT
 # clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
 
+# -z checking if the file is empty####VAR=''
+# if [[ -z $VAR ]]; then
+#   echo "String is empty."
+# fi
 
 #CHECKING PASSWORD LENGTH
 if [ ${#PASS_USER} -lt 10 ]; then
-        echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password.\a"
-            exit 1
+        echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password.\a"$CLEAR
+            (( excode++ ))
+                exit $excode #1
 else
-    echo -e $SUCCESS"\n The password is in the correct length"
+    echo -e $SUCCESS"\n The password is in the correct length"$CLEAR
 fi
 
 
 #CHECKING PASSWORD INPUT AND EXIT CODE.
 echo $PASS_USER | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]"
 if [[ $? -ne 0 ]];then
-echo -e $WARNING"\n Error: Password need to contain at least 1 upper-case, lower-case, and digits.\a"
-    exit 1
+    echo -e $WARNING"\n Error: Password need to contain at least 1 upper-case, lower-case, and digits.\a"$CLEAR
+        (( excode++ ))
+            exit $excode #1
 fi
 
 #SENDING THAT THE CHECK WAS PASS AND CLEAR THE TEXT COLOR
 echo -e $SUCCESS"\n The password passed the test."$CLEAR
-exit 0;
+exit $excode; #0
 
 
+# \n$(printf '%(%Y-%m-%d %H:%M:%S)T\n')
