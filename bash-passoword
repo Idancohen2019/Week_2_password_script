@@ -7,7 +7,7 @@
 PASS_USER=$1
 WARNING='\e[31m';
 SUCCESS='\e[32m';
-CLEAR='\e[33m';
+CLEAR='\e[0m';
 
 #ANTHER OPTION FOR USER INPUT
 # clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
@@ -15,21 +15,22 @@ CLEAR='\e[33m';
 
 #CHECKING PASSWORD LENGTH
 if [ ${#PASS_USER} -lt 10 ]; then
-        echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password."
+        echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password.\a"
             exit 1
 else
-    echo -e $SUCCESS"The password is in the correct length"
+    echo -e $SUCCESS"\n The password is in the correct length"
 fi
 
 
-#CHECKING PASSWORD INPUT
+#CHECKING PASSWORD INPUT AND EXIT CODE.
 echo $PASS_USER | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]"
 if [[ $? -ne 0 ]];then
-echo -e $WARNING"Error: Password need to contain at least 1 upper-case, lower-case, and digits"
+echo -e $WARNING"\n Error: Password need to contain at least 1 upper-case, lower-case, and digits.\a"
     exit 1
 fi
 
-echo -e $SUCCESS"The password passed the test."
+#SENDING THAT THE CHECK WAS PASS AND CLEAR THE TEXT COLOR
+echo -e $SUCCESS"\n The password passed the test."$CLEAR
 exit 0;
 
 
