@@ -3,40 +3,33 @@
 #author "Idan Cohen"
 #purpose "sela devops course"
 
-WARNING='\033[0;31m'
-SUCCESS='\033[32m'
-CLEAR='\033[0m'
 #GETTING PASSWORD INPUT FROM THE USER
-clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
+PASS_USER=$1
+WARNING='\e[31m';
+SUCCESS='\e[32m';
+CLEAR='\e[33m';
+
+#ANTHER OPTION FOR USER INPUT
+# clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
 
 
 #CHECKING PASSWORD LENGTH
 if [ ${#PASS_USER} -lt 10 ]; then
-        echo echo $WARNING"\n- '$PASS_USER' you need to enter 10 cherchters at your password."
+        echo -e $WARNING"\n Error: $PASS_USER you need to enter 10 cherchters at your password."
             exit 1
 else
-    echo "the password is in the right length"
+    echo -e $SUCCESS"The password is in the correct length"
 fi
 
 
 #CHECKING PASSWORD INPUT
-echo $PASS_USER
 echo $PASS_USER | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]"
 if [[ $? -ne 0 ]];then
-echo "Password need to contain at least 1 upper-case, lower-case, and digits"
+echo -e $WARNING"Error: Password need to contain at least 1 upper-case, lower-case, and digits"
     exit 1
 fi
 
-echo "The password passed the test."
+echo -e $SUCCESS"The password passed the test."
 exit 0;
 
-
-
-
-
-#CHECKING PASSWORD LOGIC with without user input #####
-
-# declare password='idanokoS'
-# echo $password
-# check=0
 
