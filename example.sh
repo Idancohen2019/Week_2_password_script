@@ -40,7 +40,6 @@ function check(){
 }
 
 
-
 function readfromfile(){
 #checking if there is any input from the user after the -f option
   if [ "$2" = "" ];
@@ -63,8 +62,6 @@ function readfromfile(){
 
 }
 
-
-
 #PASSWORD CHECKER
 function pass(){
 
@@ -72,21 +69,10 @@ function pass(){
   echo $PASS_USER
   #GETTING PASSWORD INPUT FROM THE USER
   # PASS_USER=$1
-  declare WARNING='\033[1;94m\e[31m';
-  declare SUCCESS='\033[1;94m\e[32m';
-  declare CLEAR='\e[0m';
   excode=0 #exit number
 
   #ANTHER OPTION FOR USER INPUT
   # clear;read -s -p"Password: " PASS_USER;clear;echo "You enter $PASS_USER"
-
-  #FILE CONDITIONS
-  # FILE="test.txt"
-  # if [ -e $FILE ];then
-  #     echo "$FILE is a file"
-  # else
-  #     echo "$FILE is not a file"
-  # fi
 
   if [ "$OPTARG" = "" ];
     then
@@ -114,8 +100,6 @@ function pass(){
   #SENDING THAT THE CHECK WAS PASS AND CLEAR THE TEXT COLOR
   echo -e $SUCCESS"\n The password passed the test."$CLEAR
   exit $excode; #0
-
-
 
 }
 
